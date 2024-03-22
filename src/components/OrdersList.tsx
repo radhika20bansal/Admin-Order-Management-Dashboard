@@ -1,8 +1,11 @@
 import React from 'react'
+import ProfileHeader from '../common-components/ProfileHeader'
 
 const OrdersList = () => {
   return (
-    <div>OrdersList</div>
+    <div className='w-full'>
+        <ProfileHeader/>
+    </div>
   )
 }
 
