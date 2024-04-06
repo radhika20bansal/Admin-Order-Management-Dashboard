@@ -1,4 +1,6 @@
-export const ordersData = [
+import { OrdersModel } from "../../models/OrdersModel";
+
+export const ordersData: OrdersModel[] = [
   {
     orderId: "OD101",
     machineName: "Aahaar Stall 23",
