@@ -3,7 +3,7 @@ import "./App.css";
 import ProfileHeader from "./common-components/ProfileHeader";
 import { Route, Routes } from "react-router-dom";
 import LeftMenu from "./common-components/LeftMenu";
-import OrdersList from "./components/OrdersList";
+import OrdersComponent from "./components/OrdersComponent";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <div className="flex items-start">
         <LeftMenu />
         <Routes>
-          <Route path='/' element={<OrdersList/>} />
+          <Route path='/' element={<OrdersComponent/>} />
         </Routes>
       </div>
     </div>
