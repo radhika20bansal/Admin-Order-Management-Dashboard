@@ -171,4 +171,106 @@ export const ordersData: OrdersModel[] = [
     },
     customerEmail: "radhika.bansal@gmail.com",
   },
+  {
+    orderId: "OD091",
+    machineName: "Aahaar Stall 15",
+    machineCode: "MI015",
+    customerName: "Smriti Rana",
+    contactNumber: "7899002042",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Success",
+    totalAmount: 550,
+    paymentDetails: {
+      paymentId: "TX1042480129473",
+      refundId: "TX1042480129473",
+    },
+    customerEmail: "smriti.rana@gmail.com",
+  },
+  {
+    orderId: "OD090",
+    machineName: "Aahaar Stall 20",
+    machineCode: "MI020",
+    customerName: "Sakshi Bharadwaj",
+    contactNumber: "8899002020",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Success",
+    totalAmount: 1199,
+    paymentDetails: {
+      paymentId: "TX1042480129472",
+      refundId: "TX1042480129472",
+    },
+    customerEmail: "sakshi.bharadwaj@gmail.com",
+  },
+  {
+    orderId: "OD089",
+    machineName: "Aahaar Stall 10",
+    machineCode: "MI010",
+    customerName: "Sumit Khanna",
+    contactNumber: "7788994400",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Refund Completed",
+    totalAmount: 400,
+    paymentDetails: {
+      paymentId: "TX1042480129471",
+      refundId: "TX1042480129471",
+    },
+    customerEmail: "sumit.khanna@gmail.com",
+  },
+  {
+    orderId: "OD088",
+    machineName: "Aahaar Stall 25",
+    machineCode: "MI025",
+    customerName: "Carlos Sainz",
+    contactNumber: "5587400200",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Sent",
+    totalAmount: 1299,
+    paymentDetails: {
+      paymentId: "TX1042480129470",
+      refundId: "TX1042480129470",
+    },
+    customerEmail: "carlos.sainz55@gmail.com",
+  },
+  {
+    orderId: "OD087",
+    machineName: "Aahaar Stall 25",
+    machineCode: "MI025",
+    customerName: "Charles Leclerc",
+    contactNumber: "6673639900",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Success",
+    totalAmount: 1099,
+    paymentDetails: {
+      paymentId: "TX1042480129469",
+      refundId: "TX1042480129469",
+    },
+    customerEmail: "charles.lec16@gmail.com",
+  },
+  {
+    orderId: "OD086",
+    machineName: "Aahaar Stall 12",
+    machineCode: "MI012",
+    customerName: "Shrey Agrawal",
+    contactNumber: "9563216494",
+    orderDate: new Date(
+      Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
+    ),
+    orderStatus: "Failure",
+    totalAmount: 999,
+    paymentDetails: {
+      paymentId: "TX1042480129468",
+      refundId: "TX1042480129468",
+    },
+    customerEmail: "shrey.agrawal@gmail.com",
+  },
 ];

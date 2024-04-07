@@ -1,9 +1,27 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { orderConstants } from "../constants";
 import { ordersData as orders } from "../assets/data/ordersData";
 import { formattedDateAndTime } from "../utils";
+import Pagination from "./Pagination";
+import OrderRow from "./OrderRow";
 
 const OrdersList = () => {
+  const [pageSize, setPageSize] = useState(5);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const dataCount = orders.length;
+
+  const { firstPageIndex, lastPageIndex, currentPageData } = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * pageSize;
+    let lastPageIndex = firstPageIndex + pageSize;
+    lastPageIndex = lastPageIndex > dataCount ? dataCount : lastPageIndex;
+    const currentPageData = orders.slice(firstPageIndex, lastPageIndex);
+
+    return { firstPageIndex, lastPageIndex, currentPageData };
+  }, [currentPage, pageSize]);
+
+  let srno = 0;
+  srno = srno + firstPageIndex;
+
   const detailsBar = (
     <div className="w-full px-2 py-4 flex items-center justify-evenly rounded-md text-xs bg-white shadow">
       <p>
@@ -33,17 +51,8 @@ const OrdersList = () => {
     </div>
   );
 
-  const StatusStyles = (orderStatus: string) => {
-    const status =
-      Object.entries(orderConstants.status).find(
-        (pair) =>
-          pair[1].value.toLocaleLowerCase() === orderStatus.toLocaleLowerCase()
-      )?.[1] ?? orderConstants.status.pending;
-    return status;
-  };
-  
   const ordersTable = (
-    <table className="table-fixed w-full mt-4 rounded-md shadow py-4 px-2 text-sm text-left bg-white">
+    <table className="table-fixed w-full my-4 rounded-md shadow py-4 px-2 text-sm text-left bg-white">
       <thead className="text-blue-500 font-semibold">
         <tr>
           <td className="pl-2 w-12">S.No.</td>
@@ -67,55 +76,56 @@ const OrdersList = () => {
         </tr>
       </thead>
       <tbody>
-        {orders && orders.length > 0
-          ? orders.map((order, index) => {
-              const status = StatusStyles(order.orderStatus);
-              const {
-                formatedDate,
-                formatedMonth,
-                formatedHours,
-                formatedMinutes,
-                formatedSeconds,
-              } = formattedDateAndTime(order.orderDate);
-              
-              return (
-                <tr key={order.orderId}>
-                  <td className="px-2">
-                    <p>{index + 1}.</p>
-                  </td>
-                  <td className="px-2 py-4">
-                    <p className="mb-4">
-                      {formatedDate}/{formatedMonth}/
-                      {order.orderDate.getFullYear()}
-                    </p>
-                    <p className="text-xs">
-                      {formatedHours} : {formatedMinutes} : {formatedSeconds}
-                    </p>
-                  </td>
-                  <td>{order.orderId}</td>
-                  <td className="px-2">
-                    <span>{order.machineName}</span>
-                    <span className="text-gray-400 ml-1">
-                      ({order.machineCode})
-                    </span>
-                  </td>
-                  <td className="px-2">{order.customerName}</td>
-                  <td className="px-2">{order.contactNumber}</td>
-                  <td className="px-2">Rs. {order.totalAmount}</td>
-                  <td>
-                    <span className={status.styles}>{status.label}</span>
-                  </td>
-                </tr>
-              );
+        {currentPageData && currentPageData.length > 0
+          ? currentPageData.map((order) => {
+              srno = srno + 1;
+              return <OrderRow order={order} srno={srno} key={order.orderId}/>;
             })
           : null}
       </tbody>
     </table>
   );
+
+  const paginationComponent = (
+    <div className="flex items-center justify-between w-full">
+      <p className="text-sm font-medium text-gray-700">
+        Showing {firstPageIndex + 1} to{" "}
+        {pageSize > dataCount ? dataCount : lastPageIndex} of {dataCount}{" "}
+        entries
+      </p>
+      <div>
+        <span className="text-sm text-gray-700 font-medium">
+          Rows per page:{" "}
+        </span>
+        <select
+          name="size"
+          value={pageSize}
+          onChange={(e) =>
+            setPageSize(
+              e.target.value === "DEFAULT" ? 5 : parseInt(e.target.value)
+            )
+          }
+          className="w-11 text-center ml-2 py-1 rounded-md outline-none"
+        >
+          <option value="DEFAULT">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
+      </div>
+      <Pagination
+        currentPage={currentPage}
+        dataCount={dataCount}
+        pageSize={pageSize}
+        onPageChange={(page: number) => setCurrentPage(page)}
+      />
+    </div>
+  );
+
   return (
-    <div className="w-3/4 p-4 pt-0 border border-red-500">
+    <div className="w-3/4 p-4 pt-0">
       {detailsBar}
       {ordersTable}
+      {paginationComponent}
     </div>
   );
 };
