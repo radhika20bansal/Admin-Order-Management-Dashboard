@@ -1,7 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { orderConstants } from "../constants";
 import { ordersData as orders } from "../assets/data/ordersData";
-import { formattedDateAndTime } from "../utils";
 import Pagination from "./Pagination";
 import OrderRow from "./OrderRow";
 
