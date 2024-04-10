@@ -3,7 +3,6 @@ import { ordersData as orders } from "../assets/data/ordersData";
 import Pagination from "./Pagination";
 import OrderRow from "./OrderRow";
 import { TiArrowUnsorted } from "react-icons/ti";
-import { OrdersModel } from "../models/OrdersModel";
 import React from "react";
 
 const OrdersList = () => {
