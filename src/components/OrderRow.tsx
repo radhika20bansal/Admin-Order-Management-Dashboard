@@ -24,7 +24,7 @@ const OrderRow = ({ order, srno }: PropsType) => {
 
   return (
     <tr>
-      <td className="px-2">
+      <td className="px-5">
         <p>{srno}.</p>
       </td>
       <td className="px-2 py-4">
