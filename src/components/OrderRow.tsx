@@ -1,6 +1,6 @@
-import { formattedDateAndTime } from "../utils";
-import { orderConstants } from "../constants";
+import { OrderStatus, formattedDateAndTime } from "../utils";
 import { OrdersModel } from "../models/OrdersModel";
+import { useNavigate } from "react-router-dom";
 
 interface PropsType {
   order: OrdersModel;
@@ -8,11 +8,8 @@ interface PropsType {
 }
 
 const OrderRow = ({ order, srno }: PropsType) => {
-  const status =
-    Object.entries(orderConstants.status).find(
-      (pair) =>
-        pair[1].value.toLocaleLowerCase() === order.orderStatus.toLocaleLowerCase()
-    )?.[1] ?? orderConstants.status.pending;
+  const navigate = useNavigate();
+  const status = OrderStatus(order.orderStatus);
 
   const {
     formatedDate,
@@ -21,9 +18,14 @@ const OrderRow = ({ order, srno }: PropsType) => {
     formatedMinutes,
     formatedSeconds,
   } = formattedDateAndTime(order.orderDate);
-
+  
   return (
-    <tr>
+    <tr
+      className="cursor-pointer"
+      onClick={() => {
+        navigate(`/orders/${order.orderId}`);
+      }}
+    >
       <td className="px-5">
         <p>{srno}.</p>
       </td>

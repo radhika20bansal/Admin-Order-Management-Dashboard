@@ -3,7 +3,6 @@ import { ordersData as orders } from "../assets/data/ordersData";
 import Pagination from "./Pagination";
 import OrderRow from "./OrderRow";
 import { TiArrowUnsorted } from "react-icons/ti";
-import React from "react";
 
 const OrdersList = () => {
   const [pageSize, setPageSize] = useState(5);
@@ -49,7 +48,7 @@ const OrdersList = () => {
       }
     });
     return sorted;
-  }, [orders, sortBy, isAmountSelected, isDateSelected, isOrderIdSelected]);
+  }, [sortBy, isAmountSelected, isDateSelected, isOrderIdSelected]);
 
   const { firstPageIndex, lastPageIndex, currentPageData } = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * pageSize;
@@ -65,6 +64,7 @@ const OrdersList = () => {
     isAmountSelected,
     isDateSelected,
     isOrderIdSelected,
+    dataCount
   ]);
 
   let srno = 0;

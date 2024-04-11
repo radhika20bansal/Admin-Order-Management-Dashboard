@@ -4,13 +4,18 @@ import { VscBellDot } from "react-icons/vsc";
 import { CiSearch } from "react-icons/ci";
 const profile = require("../assets/images/profile.jpg");
 
-const ProfileHeader = () => {
+interface PropsType{
+  heading: string;
+  link: string;
+}
+
+const ProfileHeader = ({heading, link}: PropsType) => {
   return (
     <div className="flex items-center justify-between px-8 py-3 border mx-4 rounded-b-lg rounded-bl-lg shadow bg-white">
       <div className="text-left">
-        <h1 className="text-xl font-semibold">All Orders</h1>
+        <h1 className="text-xl font-semibold">{heading}</h1>
         <Link to={"/"} className="text-sm text-blue-600">
-          All orders
+          {link}
         </Link>
       </div>
       <div className="flex flex-row items-center justify-center">

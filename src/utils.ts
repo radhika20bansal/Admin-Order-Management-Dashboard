@@ -1,3 +1,5 @@
+import { orderConstants } from "./constants";
+
 export const formattedDateAndTime = (orderDate: any) => {
   const date = orderDate.getDate();
   const formatedDate = date.toString().length === 1 ? `0${date}` : date;
@@ -23,4 +25,13 @@ export const formattedDateAndTime = (orderDate: any) => {
     formatedMinutes,
     formatedSeconds,
   };
+};
+
+export const OrderStatus = (orderStatus: string) => {
+  const status =
+    Object.entries(orderConstants.status).find(
+      (pair) =>
+        pair[1].value.toLocaleLowerCase() === orderStatus.toLocaleLowerCase()
+    )?.[1] ?? orderConstants.status.pending;
+  return status;
 };

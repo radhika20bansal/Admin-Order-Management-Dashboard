@@ -1,9 +1,8 @@
-import React from "react";
 import "./App.css";
-import ProfileHeader from "./common-components/ProfileHeader";
 import { Route, Routes } from "react-router-dom";
 import LeftMenu from "./common-components/LeftMenu";
 import OrdersComponent from "./components/OrdersComponent";
+import OrderDetails from "./components/OrderDetails";
 
 function App() {
   return (
@@ -12,6 +11,7 @@ function App() {
         <LeftMenu />
         <Routes>
           <Route path='/' element={<OrdersComponent/>} />
+          <Route path='/orders/:orderId' element={<OrderDetails/>} />
         </Routes>
       </div>
     </div>
