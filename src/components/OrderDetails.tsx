@@ -3,20 +3,19 @@ import { ordersData } from "../assets/data/ordersData";
 import ProfileHeader from "../common-components/ProfileHeader";
 import ExportOptions from "../common-components/ExportOptions";
 import { LuUndo } from "react-icons/lu";
-import { OrderStatus, formattedDateAndTime } from "../utils";
+import { OrderStatus } from "../utils";
 import moment from "moment";
 
 const OrderDetails = () => {
   const { orderId } = useParams();
   const order = ordersData.find((order) => order.orderId === orderId) ?? null;
-  console.log("matched order", order);
-  const status = order && OrderStatus(order.orderStatus);
+  const orderStatus = order && OrderStatus(order.orderStatus);
   const formattedDateAndTime = moment(order?.orderDate).format(
     "DD/MM/YYYY HH:mm:ss A"
   );
 
   const exportOptionBar = (
-    <div className=" flex items-center justify-end m-4 py-4 pr-6">
+    <div className="flex items-center justify-end m-4 py-4 pr-6">
       <button className="flex items-center text-white bg-blue-500 rounded-md px-4 py-2 font-semibold mr-6">
         <LuUndo className="mr-4" />
         Refund Complete Order
@@ -26,10 +25,10 @@ const OrderDetails = () => {
   );
 
   const orderAndCustomerSummary = (
-    <div className="py-4 px-6 w-1/3 mx-4 mt-2 mb-4 shadow rounded-md">
+    <div className="bg-white py-4 px-6 w-1/3 mx-4 mt-2 mb-4 shadow rounded-md">
       <div className="flex items-center justify-between mb-5">
         <span className="font-semibold text-blue-500">{orderId}</span>
-        <span className={`${status?.styles}`}>{status?.label}</span>
+        <span className={`${orderStatus?.styles}`}>{orderStatus?.label}</span>
       </div>
       <h2 className="uppercase font-medium text-gray-500 my-2 text-left">
         Basic Information
@@ -88,11 +87,60 @@ const OrderDetails = () => {
       </div>
     </div>
   );
+  const orderDetails = (
+    <div className="bg-white w-3/5 py-4 px-6 mx-4 mt-2 mb-4 shadow rounded-md">
+      <h2 className="uppercase font-medium text-gray-500 my-2 text-left">
+        Order Details
+      </h2>
+      <table className="table-fixed w-full my-4 py-4 px-2 text-sm text-left">
+        <thead className="text-blue-500 font-semibold">
+          <tr>
+            <td className="px-2 w-12">ID</td>
+            <td className="px-2 w-36">Drink Name</td>
+            <td className="px-1 w-28">Customization</td>
+            <td className="py-4 px-2 w-16">Amount</td>
+            <td className="px-2 w-40">Drink Status</td>
+            <td className="px-2 w-20">Action</td>
+          </tr>
+        </thead>
+        <tbody>
+          {order?.orderDetails && order.orderDetails.length > 0
+            ? order.orderDetails.map((order) => {
+                const drinkStatus = OrderStatus(order.status);
+                return (
+                  <tr key={order.id}>
+                    <td className="px-2 py-4">{order.id}</td>
+                    <td className="px-2 py-4">{order.name}</td>
+                    <td className="px-2 py-4">{order.customization}</td>
+                    <td className="px-2 py-4">Rs. {order.amount}</td>
+                    <td className="px-2 py-4">
+                      <span
+                        className={`${drinkStatus.styles} py-1 px-2 text-xs`}
+                      >
+                        {drinkStatus.label}
+                      </span>
+                    </td>
+                    <td className="pl-2 py-4">
+                      <button className="text-xs text-white bg-blue-500 rounded-md p-2 font-semibold">
+                        Refund
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })
+            : null}
+        </tbody>
+      </table>
+    </div>
+  );
   return (
     <div className="w-full border border-red-500">
       <ProfileHeader heading={`${orderId}`} link={`All Orders / ${orderId}`} />
       {exportOptionBar}
-      {orderAndCustomerSummary}
+      <div className="flex items-start justify-between">
+        {orderAndCustomerSummary}
+        {orderDetails}
+      </div>
     </div>
   );
 };

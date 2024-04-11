@@ -17,6 +17,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129481",
     },
     customerEmail: "simranjeet.kaur@basil.health",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Refund Completed",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD100",
@@ -34,6 +50,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129482",
     },
     customerEmail: "sakshi.babbar@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D103",
+        name: "Pineapple Mojito",
+        customization: "More soda",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD099",
@@ -51,6 +83,29 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129483",
     },
     customerEmail: "deepak.agrawal@gmail.com",
+    orderDetails: [
+      {
+        id: "D104",
+        name: "Mint Lemonade",
+        customization: "A bit sweet",
+        amount: 199,
+        status: "Failure",
+      },
+      {
+        id: "D105",
+        name: "Blackberry Margarita",
+        customization: "Low Sugar",
+        amount: 299,
+        status: "Success",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD098",
@@ -68,6 +123,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129480",
     },
     customerEmail: "swati.shrivastava@gmail.com",
+    orderDetails: [
+      {
+        id: "D106",
+        name: "Strawberry Punch",
+        customization: "Low Sugar",
+        amount: 180,
+        status: "Success",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD097",
@@ -79,12 +150,35 @@ export const ordersData: OrdersModel[] = [
       Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
     ),
     orderStatus: "Success",
-    totalAmount: 200,
+    totalAmount: 800,
     paymentDetails: {
       paymentId: "TX1042480129479",
       refundId: "TX1042480129479",
     },
     customerEmail: "radhika.bansal@gmail.com",
+    orderDetails: [
+      {
+        id: "D103",
+        name: "Pineapple Mojito",
+        customization: "More sweet",
+        amount: 250,
+        status: "Success",
+      },
+      {
+        id: "D105",
+        name: "Blackberry Margarita",
+        customization: "Low Sugar",
+        amount: 299,
+        status: "Success",
+      },
+      {
+        id: "D107",
+        name: "Frappuchino",
+        customization: "More Sugar",
+        amount: 199,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD096",
@@ -102,6 +196,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129478",
     },
     customerEmail: "prakhar.kumar@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD095",
@@ -119,6 +229,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129477",
     },
     customerEmail: "sakshi.bharadwaj@gmail.com",
+    orderDetails: [
+      {
+        id: "D106",
+        name: "Strawberry Punch",
+        customization: "Low Honey",
+        amount: 180,
+        status: "Refund Initiated",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD094",
@@ -136,6 +262,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129476",
     },
     customerEmail: "smriti.rana@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D104",
+        name: "Mint Lemonade",
+        customization: "Low Sugar",
+        amount: 199,
+        status: "Refund Completed",
+      },
+    ],
   },
   {
     orderId: "OD093",
@@ -153,6 +295,29 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129475",
     },
     customerEmail: "simranjeet.kaur@basil.health",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Sent",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+      {
+        id: "D103",
+        name: "Pineapple Mojito",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD092",
@@ -170,6 +335,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129474",
     },
     customerEmail: "radhika.bansal@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "WIth full cream milk",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D107",
+        name: "Frappuchino",
+        customization: "More Sugar",
+        amount: 199,
+        status: "Refund Completed",
+      },
+    ],
   },
   {
     orderId: "OD091",
@@ -187,6 +368,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129473",
     },
     customerEmail: "smriti.rana@gmail.com",
+    orderDetails: [
+      {
+        id: "D105",
+        name: "Blackberry Margarita",
+        customization: "Low Fat",
+        amount: 299,
+        status: "Success",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD090",
@@ -204,6 +401,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129472",
     },
     customerEmail: "sakshi.bharadwaj@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D104",
+        name: "Mint Lemonade",
+        customization: "More Sugar",
+        amount: 199,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD089",
@@ -221,6 +434,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129471",
     },
     customerEmail: "sumit.khanna@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Refund Completed",
+      },
+      {
+        id: "D107",
+        name: "Frappuchino",
+        customization: "Low Sugar",
+        amount: 199,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD088",
@@ -238,6 +467,22 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129470",
     },
     customerEmail: "carlos.sainz55@gmail.com",
+    orderDetails: [
+      {
+        id: "D107",
+        name: "Frappuchino",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Sent",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD087",
@@ -255,6 +500,43 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129469",
     },
     customerEmail: "charles.lec16@gmail.com",
+    orderDetails: [
+      {
+        id: "D107",
+        name: "Frappuchino",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D105",
+        name: "Blackberry Margarita",
+        customization: "More berry flavour",
+        amount: 299,
+        status: "Success",
+      },
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "With Oat milk",
+        amount: 250,
+        status: "Success",
+      },
+      {
+        id: "D104",
+        name: "Mint Lemonade",
+        customization: "A bit less sour and more sweet",
+        amount: 199,
+        status: "Success",
+      },
+      {
+        id: "D108",
+        name: "Dragon Fruit Martini",
+        customization: "less sweet",
+        amount: 299,
+        status: "Success",
+      },
+    ],
   },
   {
     orderId: "OD086",
@@ -272,5 +554,21 @@ export const ordersData: OrdersModel[] = [
       refundId: "TX1042480129468",
     },
     customerEmail: "shrey.agrawal@gmail.com",
+    orderDetails: [
+      {
+        id: "D101",
+        name: "Mix Berry Smoothie",
+        customization: "Low Fat",
+        amount: 199,
+        status: "Failure",
+      },
+      {
+        id: "D102",
+        name: "Blueberry Fruit Punch",
+        customization: "Low Sugar",
+        amount: 250,
+        status: "Success",
+      },
+    ],
   },
 ];
