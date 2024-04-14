@@ -5,8 +5,11 @@ import ExportOptions from "../common-components/ExportOptions";
 import { LuUndo } from "react-icons/lu";
 import { OrderStatus } from "../utils";
 import moment from "moment";
+import { useState } from "react";
+import ButtonComponent from "../common-components/ButtonComponent";
 
 const OrderDetails = () => {
+  const [isDisabled, setIsDisabled] = useState(false);
   const { orderId } = useParams();
   const order = ordersData.find((order) => order.orderId === orderId) ?? null;
   const orderStatus = order && OrderStatus(order.orderStatus);
@@ -16,7 +19,15 @@ const OrderDetails = () => {
 
   const exportOptionBar = (
     <div className="flex items-center justify-end m-4 py-4 pr-6">
-      <button className="flex items-center text-white bg-blue-500 rounded-md px-4 py-2 font-semibold mr-6">
+      <button
+        className={
+          isDisabled
+            ? "flex items-center text-white bg-gray-400 rounded-md px-4 py-2 font-semibold mr-6"
+            : "flex items-center text-white bg-blue-500 rounded-md px-4 py-2 font-semibold mr-6"
+        }
+        disabled={isDisabled}
+        onClick={() => setIsDisabled(true)}
+      >
         <LuUndo className="mr-4" />
         Refund Complete Order
       </button>
@@ -107,6 +118,7 @@ const OrderDetails = () => {
           {order?.orderDetails && order.orderDetails.length > 0
             ? order.orderDetails.map((order) => {
                 const drinkStatus = OrderStatus(order.status);
+
                 return (
                   <tr key={order.id}>
                     <td className="px-2 py-4">{order.id}</td>
@@ -121,9 +133,17 @@ const OrderDetails = () => {
                       </span>
                     </td>
                     <td className="pl-2 py-4">
-                      <button className="text-xs text-white bg-blue-500 rounded-md p-2 font-semibold">
+                      <ButtonComponent
+                        disabled={
+                          isDisabled
+                            ? isDisabled
+                            : drinkStatus.label.startsWith("Refund")
+                            ? true
+                            : false
+                        }
+                      >
                         Refund
-                      </button>
+                      </ButtonComponent>
                     </td>
                   </tr>
                 );
