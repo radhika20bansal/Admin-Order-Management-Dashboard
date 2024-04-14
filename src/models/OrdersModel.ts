@@ -14,7 +14,8 @@ export interface OrdersModel {
 
 export interface PaymentDetails {
   paymentId: string;
-  refundId: string;
+  refundId: string | null;
+  isCompleteOrderRefunded: boolean;
 }
 
 export interface OrderDetails {

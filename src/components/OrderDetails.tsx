@@ -87,17 +87,22 @@ const OrderDetails = () => {
           <p className="font-medium">{order?.customerEmail}</p>
         </div>
       </div>
-      <h2 className="uppercase font-medium text-gray-500 my-2 text-left">
-        Refund Information
-      </h2>
-      <div className="flex flex-wrap items-start justify-between mb-7 text-left text-sm">
-        <div className="w-40">
-          <p className="text-gray-500 mb-2">Refund Transaction ID</p>
-          <p className="font-medium">{order?.paymentDetails.refundId}</p>
+      {order?.paymentDetails.refundId ? (
+        <div>
+          <h2 className="uppercase font-medium text-gray-500 my-2 text-left">
+            Refund Information
+          </h2>
+          <div className="flex flex-wrap items-start justify-between mb-7 text-left text-sm">
+            <div className="w-40">
+              <p className="text-gray-500 mb-2">Refund Transaction ID</p>
+              <p className="font-medium">{order?.paymentDetails.refundId}</p>
+            </div>
+          </div>
         </div>
-      </div>
+      ) : null}
     </div>
   );
+
   const orderDetails = (
     <div className="bg-white w-3/5 py-4 px-6 mx-4 mt-2 mb-4 shadow rounded-md">
       <h2 className="uppercase font-medium text-gray-500 my-2 text-left">

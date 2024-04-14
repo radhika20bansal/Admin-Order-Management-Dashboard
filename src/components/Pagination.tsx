@@ -21,13 +21,13 @@ const Pagination = ({
 }: PropsType) => {
   const totalPageCount = useMemo(() => {
     return Math.ceil(dataCount / pageSize);
-  }, [currentPage, dataCount, pageSize]);
+  }, [dataCount, pageSize]);
 
   useEffect(() => {
     totalPageCount < currentPage
       ? onPageChange(totalPageCount)
       : onPageChange(currentPage);
-  }, [totalPageCount]);
+  }, [currentPage, totalPageCount]);
 
   const handleFirstPage = () => {
     if (currentPage === 1) return;

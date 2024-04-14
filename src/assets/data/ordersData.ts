@@ -15,6 +15,7 @@ export const ordersData: OrdersModel[] = [
     paymentDetails: {
       paymentId: "TX1042480129481",
       refundId: "TX1042480129481",
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "simranjeet.kaur@basil.health",
     orderDetails: [
@@ -30,7 +31,7 @@ export const ordersData: OrdersModel[] = [
         name: "Blueberry Fruit Punch",
         customization: "Low Sugar",
         amount: 250,
-        status: "Success",
+        status: "Pending",
       },
     ],
   },
@@ -47,7 +48,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 1000,
     paymentDetails: {
       paymentId: "TX1042480129482",
-      refundId: "TX1042480129482",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "sakshi.babbar@gmail.com",
     orderDetails: [
@@ -81,6 +83,7 @@ export const ordersData: OrdersModel[] = [
     paymentDetails: {
       paymentId: "TX1042480129483",
       refundId: "TX1042480129483",
+      isCompleteOrderRefunded: true,
     },
     customerEmail: "deepak.agrawal@gmail.com",
     orderDetails: [
@@ -96,14 +99,14 @@ export const ordersData: OrdersModel[] = [
         name: "Blackberry Margarita",
         customization: "Low Sugar",
         amount: 299,
-        status: "Success",
+        status: "Failure",
       },
       {
         id: "D102",
         name: "Blueberry Fruit Punch",
         customization: "Low Sugar",
         amount: 250,
-        status: "Success",
+        status: "Failure",
       },
     ],
   },
@@ -120,7 +123,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 550,
     paymentDetails: {
       paymentId: "TX1042480129480",
-      refundId: "TX1042480129480",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "swati.shrivastava@gmail.com",
     orderDetails: [
@@ -153,7 +157,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 800,
     paymentDetails: {
       paymentId: "TX1042480129479",
-      refundId: "TX1042480129479",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "radhika.bansal@gmail.com",
     orderDetails: [
@@ -193,7 +198,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 500,
     paymentDetails: {
       paymentId: "TX1042480129478",
-      refundId: "TX1042480129478",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "prakhar.kumar@gmail.com",
     orderDetails: [
@@ -202,7 +208,7 @@ export const ordersData: OrdersModel[] = [
         name: "Mix Berry Smoothie",
         customization: "Low Fat",
         amount: 199,
-        status: "Success",
+        status: "Sent",
       },
       {
         id: "D102",
@@ -222,11 +228,12 @@ export const ordersData: OrdersModel[] = [
     orderDate: new Date(
       Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
     ),
-    orderStatus: "Refund Initiated",
+    orderStatus: "Success",
     totalAmount: 700,
     paymentDetails: {
       paymentId: "TX1042480129477",
       refundId: "TX1042480129477",
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "sakshi.bharadwaj@gmail.com",
     orderDetails: [
@@ -255,11 +262,12 @@ export const ordersData: OrdersModel[] = [
     orderDate: new Date(
       Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
     ),
-    orderStatus: "Refund Completed",
+    orderStatus: "Success",
     totalAmount: 799,
     paymentDetails: {
       paymentId: "TX1042480129476",
       refundId: "TX1042480129476",
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "smriti.rana@gmail.com",
     orderDetails: [
@@ -292,7 +300,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 599,
     paymentDetails: {
       paymentId: "TX1042480129475",
-      refundId: "TX1042480129475",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "simranjeet.kaur@basil.health",
     orderDetails: [
@@ -333,6 +342,7 @@ export const ordersData: OrdersModel[] = [
     paymentDetails: {
       paymentId: "TX1042480129474",
       refundId: "TX1042480129474",
+      isCompleteOrderRefunded: true,
     },
     customerEmail: "radhika.bansal@gmail.com",
     orderDetails: [
@@ -341,7 +351,7 @@ export const ordersData: OrdersModel[] = [
         name: "Mix Berry Smoothie",
         customization: "WIth full cream milk",
         amount: 199,
-        status: "Success",
+        status: "Refund Completed",
       },
       {
         id: "D107",
@@ -365,7 +375,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 550,
     paymentDetails: {
       paymentId: "TX1042480129473",
-      refundId: "TX1042480129473",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "smriti.rana@gmail.com",
     orderDetails: [
@@ -398,7 +409,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 1199,
     paymentDetails: {
       paymentId: "TX1042480129472",
-      refundId: "TX1042480129472",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "sakshi.bharadwaj@gmail.com",
     orderDetails: [
@@ -427,11 +439,12 @@ export const ordersData: OrdersModel[] = [
     orderDate: new Date(
       Date.now() - 1000 * 60 * 60 * 24 * (Math.random() * (20 - 1) + 1)
     ),
-    orderStatus: "Refund Completed",
+    orderStatus: "Refund Initiated",
     totalAmount: 400,
     paymentDetails: {
       paymentId: "TX1042480129471",
       refundId: "TX1042480129471",
+      isCompleteOrderRefunded: true,
     },
     customerEmail: "sumit.khanna@gmail.com",
     orderDetails: [
@@ -447,7 +460,7 @@ export const ordersData: OrdersModel[] = [
         name: "Frappuchino",
         customization: "Low Sugar",
         amount: 199,
-        status: "Success",
+        status: "Refund Inititated",
       },
     ],
   },
@@ -464,7 +477,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 1299,
     paymentDetails: {
       paymentId: "TX1042480129470",
-      refundId: "TX1042480129470",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "carlos.sainz55@gmail.com",
     orderDetails: [
@@ -497,7 +511,8 @@ export const ordersData: OrdersModel[] = [
     totalAmount: 1099,
     paymentDetails: {
       paymentId: "TX1042480129469",
-      refundId: "TX1042480129469",
+      refundId: null,
+      isCompleteOrderRefunded: false,
     },
     customerEmail: "charles.lec16@gmail.com",
     orderDetails: [
@@ -552,6 +567,7 @@ export const ordersData: OrdersModel[] = [
     paymentDetails: {
       paymentId: "TX1042480129468",
       refundId: "TX1042480129468",
+      isCompleteOrderRefunded: true,
     },
     customerEmail: "shrey.agrawal@gmail.com",
     orderDetails: [
@@ -567,7 +583,7 @@ export const ordersData: OrdersModel[] = [
         name: "Blueberry Fruit Punch",
         customization: "Low Sugar",
         amount: 250,
-        status: "Success",
+        status: "Failure",
       },
     ],
   },

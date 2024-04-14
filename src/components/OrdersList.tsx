@@ -64,7 +64,7 @@ const OrdersList = () => {
     isAmountSelected,
     isDateSelected,
     isOrderIdSelected,
-    dataCount
+    dataCount,
   ]);
 
   let srno = 0;

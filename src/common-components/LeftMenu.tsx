@@ -15,7 +15,7 @@ const LeftMenu = () => {
   return (
     <div className="w-20 p-4 h-screen shadow-md shadow-gray-300 rounded-md bg-white">
       <div>
-        <img src={logo} className="w-9 h-9 rounded-full" />
+        <img src={logo} className="w-9 h-9 rounded-full" alt=''/>
         <div className="my-16 flex flex-col items-center">
           <Link to="" className="mb-9 block">
             <FiHome size={"24px"} />
