@@ -1,6 +1,9 @@
 import { OrderStatus, formattedDateAndTime } from "../utils";
 import { OrdersModel } from "../models/OrdersModel";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { singleOrder } from "../slices/ordersSlice";
+import { AppDispatch } from "../app/store";
 
 interface PropsType {
   order: OrdersModel;
@@ -9,6 +12,7 @@ interface PropsType {
 
 const OrderRow = ({ order, srno }: PropsType) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch<AppDispatch>();
   const status = OrderStatus(order.orderStatus);
 
   const {
@@ -23,6 +27,7 @@ const OrderRow = ({ order, srno }: PropsType) => {
     <tr
       className="cursor-pointer"
       onClick={() => {
+        dispatch(singleOrder(order.orderId));
         navigate(`/orders/${order.orderId}`);
       }}
     >

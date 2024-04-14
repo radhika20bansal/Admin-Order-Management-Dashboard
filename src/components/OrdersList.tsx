@@ -1,10 +1,14 @@
 import { useMemo, useState } from "react";
-import { ordersData as orders } from "../assets/data/ordersData";
+// import { ordersData as orders } from "../assets/data/ordersData";
 import Pagination from "./Pagination";
 import OrderRow from "./OrderRow";
 import { TiArrowUnsorted } from "react-icons/ti";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
 
 const OrdersList = () => {
+  const filteredOrders = useSelector((state: RootState) => state.order.filteredOrders);
+  const orders = [...filteredOrders];
   const [pageSize, setPageSize] = useState(5);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [isDateSelected, setIsDateSelected] = useState<boolean>(false);
@@ -172,9 +176,9 @@ const OrdersList = () => {
       </thead>
       <tbody>
         {currentPageData && currentPageData.length > 0
-          ? currentPageData.map((order) => {
+          ? currentPageData.map((singleOrder: any) => {
               srno = srno + 1;
-              return <OrderRow order={order} srno={srno} key={order.orderId} />;
+              return <OrderRow order={singleOrder} srno={srno} key={singleOrder.orderId} />;
             })
           : null}
       </tbody>

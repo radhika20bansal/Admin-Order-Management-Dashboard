@@ -7,11 +7,14 @@ import { OrderStatus } from "../utils";
 import moment from "moment";
 import { useState } from "react";
 import ButtonComponent from "../common-components/ButtonComponent";
+import { useSelector } from "react-redux";
+import { RootState } from "../app/store";
 
 const OrderDetails = () => {
+  const singleOrder = useSelector((state: RootState) => state.order.singleOrder);
   const [isDisabled, setIsDisabled] = useState(false);
   const { orderId } = useParams();
-  const order = ordersData.find((order) => order.orderId === orderId) ?? null;
+  const order = singleOrder.find((order) => order.orderId === orderId) ?? null;
   const orderStatus = order && OrderStatus(order.orderStatus);
   const formattedDateAndTime = moment(order?.orderDate).format(
     "DD/MM/YYYY HH:mm:ss A"
@@ -21,11 +24,11 @@ const OrderDetails = () => {
     <div className="flex items-center justify-end m-4 py-4 pr-6">
       <button
         className={
-          isDisabled
+          isDisabled || order?.paymentDetails.isCompleteOrderRefunded
             ? "flex items-center text-white bg-gray-400 rounded-md px-4 py-2 font-semibold mr-6"
             : "flex items-center text-white bg-blue-500 rounded-md px-4 py-2 font-semibold mr-6"
         }
-        disabled={isDisabled}
+        disabled={isDisabled || order?.paymentDetails.isCompleteOrderRefunded}
         onClick={() => setIsDisabled(true)}
       >
         <LuUndo className="mr-4" />
@@ -121,15 +124,15 @@ const OrderDetails = () => {
         </thead>
         <tbody>
           {order?.orderDetails && order.orderDetails.length > 0
-            ? order.orderDetails.map((order) => {
-                const drinkStatus = OrderStatus(order.status);
+            ? order.orderDetails.map((detail: any) => {
+                const drinkStatus = OrderStatus(detail.status);
 
                 return (
-                  <tr key={order.id}>
-                    <td className="px-2 py-4">{order.id}</td>
-                    <td className="px-2 py-4">{order.name}</td>
-                    <td className="px-2 py-4">{order.customization}</td>
-                    <td className="px-2 py-4">Rs. {order.amount}</td>
+                  <tr key={detail.id}>
+                    <td className="px-2 py-4">{detail.id}</td>
+                    <td className="px-2 py-4">{detail.name}</td>
+                    <td className="px-2 py-4">{detail.customization}</td>
+                    <td className="px-2 py-4">Rs. {detail.amount}</td>
                     <td className="px-2 py-4">
                       <span
                         className={`${drinkStatus.styles} py-1 px-2 text-xs`}
