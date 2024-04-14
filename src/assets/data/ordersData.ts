@@ -460,7 +460,7 @@ export const ordersData: OrdersModel[] = [
         name: "Frappuchino",
         customization: "Low Sugar",
         amount: 199,
-        status: "Refund Inititated",
+        status: "Refund Initiated",
       },
     ],
   },
